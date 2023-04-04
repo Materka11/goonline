@@ -11,11 +11,11 @@ export const AddColors = () => {
       return;
     }
     const savedColors = localStorage.getItem('colors');
-    let colors: { [key: string]: string } = {};
+    let colors: { value: string }[] = [];
     if (savedColors) {
       colors = JSON.parse(savedColors);
     }
-    colors[color.toUpperCase()] = color.toUpperCase();
+    colors.push({ value: color.toUpperCase() });
     localStorage.setItem('colors', JSON.stringify(colors));
     setColor('');
   };
