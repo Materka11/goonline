@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { validateColor } from '../../helper/validateColor';
+import { ColorType } from '../../types';
 
 export const AddColors = () => {
   const [color, setColor] = useState('');
@@ -11,11 +12,11 @@ export const AddColors = () => {
       return;
     }
     const savedColors = localStorage.getItem('colors');
-    let colors: { value: string }[] = [];
+    let colors: ColorType[] = [];
     if (savedColors) {
       colors = JSON.parse(savedColors);
     }
-    colors.push({ value: color.toUpperCase() });
+    colors.push({ value: color.toUpperCase(), isDefault: false });
     localStorage.setItem('colors', JSON.stringify(colors));
     setColor('');
   };

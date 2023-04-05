@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { DEFAULT_COLORS } from '../../constants/defaultColors';
+import { ColorType } from '../../types';
+import { ColorCard } from './ColorCard/ColorCard';
 
 export const ColorsList = () => {
-  const [colors, setColors] = useState<{ value: string }[]>([]);
+  const [colors, setColors] = useState<ColorType[]>([]);
 
   useEffect(() => {
     const savedColors = localStorage.getItem('colors');
@@ -13,13 +15,14 @@ export const ColorsList = () => {
     const allColors = [...DEFAULT_COLORS, ...userColors];
     console.log(allColors);
     setColors(allColors);
-  }, []);
+  }, [colors]);
   console.log(colors);
+
   return (
     <div>
       <ul>
-        {colors.map((color, index) => (
-          <li key={index}>{color.value}</li>
+        {colors.map((color) => (
+          <ColorCard key={color.value} color={color} />
         ))}
       </ul>
     </div>
