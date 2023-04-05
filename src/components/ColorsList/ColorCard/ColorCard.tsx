@@ -1,4 +1,5 @@
 import { ColorType } from '../../../types';
+import './colorCard.scss';
 
 interface ColorCardProp {
   color: ColorType;
@@ -24,6 +25,7 @@ export const ColorCard = ({ color }: ColorCardProp) => {
 
   return (
     <li>
+      <div className="color-rectangle" style={{ backgroundColor: value }} />
       <span>{value}</span>
       {isDefault ? null : <button onClick={() => removeColor(value)}>X</button>}
     </li>
