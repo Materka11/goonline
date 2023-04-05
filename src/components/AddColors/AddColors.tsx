@@ -13,9 +13,7 @@ export const AddColors = () => {
     }
     const savedColors = localStorage.getItem('colors');
     let colors: ColorType[] = [];
-    if (savedColors) {
-      colors = JSON.parse(savedColors);
-    }
+    if (savedColors) colors = JSON.parse(savedColors);
     colors.push({ value: color.toUpperCase(), isDefault: false });
     localStorage.setItem('colors', JSON.stringify(colors));
     setColor('');
@@ -23,9 +21,7 @@ export const AddColors = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputColor = event.target.value;
-    if (!/^(#[a-zA-Z0-9]{0,6})$/.test(inputColor)) {
-      return;
-    }
+    if (!/^(#[a-zA-Z0-9]{0,6})$/.test(inputColor)) return;
     setColor(inputColor.toUpperCase());
   };
 

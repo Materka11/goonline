@@ -11,12 +11,9 @@ export const ColorCard = ({ color }: ColorCardProp) => {
   const removeColor = (value: string) => {
     const savedColors = localStorage.getItem('colors');
     let colors: ColorType[] = [];
-    if (savedColors) {
-      colors = JSON.parse(savedColors);
-    }
+    if (savedColors) colors = JSON.parse(savedColors);
 
     const index = colors.findIndex((c) => c.value === value);
-
     if (index !== -1) {
       colors.splice(index, 1);
       localStorage.setItem('colors', JSON.stringify(colors));
