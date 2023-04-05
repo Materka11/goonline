@@ -1,8 +1,6 @@
 export const hexToRgb = (hex: string) => {
   const match = hex.match(/^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i);
-  if (!match) {
-    throw new Error(`Invalid hex color: ${hex}`);
-  }
+  if (!match) throw new Error(`Invalid hex color: ${hex}`);
 
   return {
     r: parseInt(match[1], 16),

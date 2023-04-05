@@ -1,10 +1,8 @@
-import { AddColors } from './components/AddColors/AddColors';
-import { ColorsList } from './components/ColorsList/ColorsList';
+import { ColorsWrapper } from './components/ColorsWrapper/ColorsWrapper';
 
 const App = () => (
   <div className="App">
-    <AddColors />
-    <ColorsList />
+    <ColorsWrapper />
   </div>
 );
 
