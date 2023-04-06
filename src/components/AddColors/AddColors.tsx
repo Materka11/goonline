@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { validateColor } from '../../helper/validateColor';
-import { ColorType } from '../../types';
+import { useColor } from '../../hooks/useColor';
+import { getUserColors } from '../../helper/getUserColors';
 
 export const AddColors = () => {
   const [color, setColor] = useState('');
+  const { colors, addColor } = useColor();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -11,11 +13,15 @@ export const AddColors = () => {
       alert('Invalid color format! Use HEX RGB format.');
       return;
     }
-    const savedColors = localStorage.getItem('colors');
-    let colors: ColorType[] = [];
-    if (savedColors) colors = JSON.parse(savedColors);
-    colors.push({ value: color.toUpperCase(), isDefault: false });
-    localStorage.setItem('colors', JSON.stringify(colors));
+    if (colors.some((c) => c.value === color.toUpperCase())) {
+      alert('Color already exists!');
+      return;
+    }
+    const userColors = getUserColors();
+    let colorValue = { value: color.toUpperCase(), isDefault: false };
+    userColors.push(colorValue);
+    localStorage.setItem('colors', JSON.stringify(userColors));
+    addColor(colorValue);
     setColor('');
   };
 

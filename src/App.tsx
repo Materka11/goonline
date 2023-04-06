@@ -1,9 +1,10 @@
 import { ColorsWrapper } from './components/ColorsWrapper/ColorsWrapper';
+import { ColorProvider } from './context/ColorContext';
 
 const App = () => (
-  <div className="App">
+  <ColorProvider>
     <ColorsWrapper />
-  </div>
+  </ColorProvider>
 );
 
 export default App;

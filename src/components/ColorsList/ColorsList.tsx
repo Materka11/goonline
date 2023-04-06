@@ -1,15 +1,16 @@
-import { ColorType } from '../../types';
+import { useColor } from '../../hooks/useColor';
 import { ColorCard } from './ColorCard/ColorCard';
+import { sortColors } from '../../helper/sortColors';
 
-interface ColorsListProp {
-  colors: ColorType[];
-}
+export const ColorsList = () => {
+  const { colors } = useColor();
 
-export const ColorsList = ({ colors }: ColorsListProp) => {
+  const sortedColors = sortColors(colors);
+
   return (
     <div>
       <ul>
-        {colors.map((color, index) => (
+        {sortedColors.map((color, index) => (
           <ColorCard key={`${color.value}${index}`} color={color} />
         ))}
       </ul>
