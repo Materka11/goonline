@@ -6,6 +6,7 @@ import { useColor } from '../../hooks/useColor';
 import { ColorsList } from '../ColorsList/ColorsList';
 import { getUserColors } from '../../helper/getUserColors';
 import { sortColors } from '../../helper/sortColors';
+import './colorsWrapper.scss';
 
 export const ColorsWrapper = () => {
   const { setColors } = useColor();
@@ -18,7 +19,7 @@ export const ColorsWrapper = () => {
   }, []);
 
   return (
-    <div>
+    <div className="wrapper">
       <AddColors />
       <FilterColors />
       <ColorsList />

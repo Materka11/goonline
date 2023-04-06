@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { validateColor } from '../../helper/validateColor';
 import { useColor } from '../../hooks/useColor';
 import { getUserColors } from '../../helper/getUserColors';
+import './AddColors.scss';
 
 export const AddColors = () => {
   const [color, setColor] = useState('');
@@ -32,8 +33,8 @@ export const AddColors = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="color-input">Color:</label>
+    <form onSubmit={handleSubmit} className="form-add">
+      <label htmlFor="color-input">Color: </label>
       <input
         id="color-input"
         type="text"
@@ -42,6 +43,7 @@ export const AddColors = () => {
         maxLength={7}
         pattern="^(#[a-zA-Z0-9]{0,6})$"
         title="Use HEX RGB format. Only letters and digits are allowed."
+        placeholder="#FFFFFF"
       />
       <button type="submit">Add color</button>
     </form>

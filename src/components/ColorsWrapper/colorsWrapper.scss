@@ -1,0 +1,11 @@
+@use '../../styles/variables' as v;
+
+.wrapper {
+  background-color: v.$white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 30px;
+  border-radius: 20px;
+}

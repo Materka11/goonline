@@ -1,7 +1,17 @@
-.color-rectangle {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  border: 1px solid black;
+.colors-element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .color-rectangle {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border: 1px solid black;
+  }
+
+  .button-element {
+    width: 25px;
+    height: 25px;
+  }
 }

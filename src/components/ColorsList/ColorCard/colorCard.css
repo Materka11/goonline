@@ -1,0 +1,16 @@
+.colors-element {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.colors-element .color-rectangle {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  border: 1px solid black;
+}
+.colors-element .button-element {
+  width: 25px;
+  height: 25px;
+}/*# sourceMappingURL=colorCard.css.map */

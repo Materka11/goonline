@@ -1,8 +1,8 @@
 import { ColorType } from '../types';
 import { hexToRgb } from './hexToRgb';
 
-export const sortColors = (colors: ColorType[]) => {
-  return colors.sort((colorA, colorB) => {
+export const sortColors = (colors: ColorType[]) =>
+  colors.sort((colorA, colorB) => {
     const rgbA = hexToRgb(colorA.value);
     const rgbB = hexToRgb(colorB.value);
 
@@ -12,4 +12,3 @@ export const sortColors = (colors: ColorType[]) => {
 
     return 0;
   });
-};

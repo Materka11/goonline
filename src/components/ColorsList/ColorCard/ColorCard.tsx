@@ -23,11 +23,18 @@ export const ColorCard = ({ color }: ColorCardProp) => {
   };
 
   return (
-    <li>
+    <li className="colors-element">
       <div className="color-rectangle" style={{ backgroundColor: value }} />
       <span>{value}</span>
-      {isDefault ? null : (
-        <button onClick={() => handleRemoveColor(value)}>X</button>
+      {isDefault ? (
+        <div className="button-element" />
+      ) : (
+        <button
+          className="button-element"
+          onClick={() => handleRemoveColor(value)}
+        >
+          X
+        </button>
       )}
     </li>
   );

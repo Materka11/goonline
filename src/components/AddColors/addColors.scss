@@ -1,0 +1,10 @@
+@use '../../styles/variables' as v;
+
+.form-add {
+  font-weight: 600;
+  input {
+    padding: 4px;
+    margin: 0 5px;
+    border: 1px solid v.$black;
+  }
+}

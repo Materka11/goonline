@@ -4,6 +4,7 @@ import { rgbToHsl } from '../../helper/rgbToHsl';
 import { DEFAULT_COLORS } from '../../constants/defaultColors';
 import { useColor } from '../../hooks/useColor';
 import { getUserColors } from '../../helper/getUserColors';
+import './filterColors.scss';
 
 export const FilterColors = () => {
   const [red, setRed] = useState(false);
@@ -53,9 +54,9 @@ export const FilterColors = () => {
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="red">Red &gt; 50%:</label>
+    <form onSubmit={handleSubmit} className="form-filter">
+      <div>
+        <label htmlFor="red">Red &gt; 50%</label>
         <input
           type="checkbox"
           name="red"
@@ -63,8 +64,9 @@ export const FilterColors = () => {
           checked={red}
           onChange={(event) => setRed(event.target.checked)}
         />
-
-        <label htmlFor="green">Green &gt; 50%:</label>
+      </div>
+      <div>
+        <label htmlFor="green">Green &gt; 50%</label>
         <input
           type="checkbox"
           name="green"
@@ -72,8 +74,9 @@ export const FilterColors = () => {
           checked={green}
           onChange={(event) => setGreen(event.target.checked)}
         />
-
-        <label htmlFor="blue">Blue &gt; 50%:</label>
+      </div>
+      <div>
+        <label htmlFor="blue">Blue &gt; 50%</label>
         <input
           type="checkbox"
           name="blue"
@@ -81,8 +84,9 @@ export const FilterColors = () => {
           checked={blue}
           onChange={(event) => setBlue(event.target.checked)}
         />
-
-        <label htmlFor="saturation">Saturation &gt; 50%:</label>
+      </div>
+      <div>
+        <label htmlFor="saturation">Saturation &gt; 50%</label>
         <input
           type="checkbox"
           name="saturation"
@@ -90,11 +94,11 @@ export const FilterColors = () => {
           checked={saturation}
           onChange={(event) => setSaturation(event.target.checked)}
         />
-        <button type="submit">Submit</button>
-        <button type="button" onClick={handleReset}>
-          Reset
-        </button>
-      </form>
-    </>
+      </div>
+      <button type="submit">Submit</button>
+      <button type="button" onClick={handleReset}>
+        Reset
+      </button>
+    </form>
   );
 };
